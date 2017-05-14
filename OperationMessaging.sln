@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationMessaging", "OperationMessaging\OperationMessaging.csproj", "{121413D5-4B2C-45F8-8BB3-367A27B48E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculation", "Calculation\Calculation.csproj", "{51FB20FA-8C0B-431C-A748-CCCD8C8BDAB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperationMessaging.Test", "OperationMessaging.Test\OperationMessaging.Test.csproj", "{714EE7A7-21E7-44BF-A7DC-6AAA88A8EEE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{121413D5-4B2C-45F8-8BB3-367A27B48E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121413D5-4B2C-45F8-8BB3-367A27B48E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121413D5-4B2C-45F8-8BB3-367A27B48E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121413D5-4B2C-45F8-8BB3-367A27B48E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51FB20FA-8C0B-431C-A748-CCCD8C8BDAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51FB20FA-8C0B-431C-A748-CCCD8C8BDAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51FB20FA-8C0B-431C-A748-CCCD8C8BDAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51FB20FA-8C0B-431C-A748-CCCD8C8BDAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{714EE7A7-21E7-44BF-A7DC-6AAA88A8EEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{714EE7A7-21E7-44BF-A7DC-6AAA88A8EEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{714EE7A7-21E7-44BF-A7DC-6AAA88A8EEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{714EE7A7-21E7-44BF-A7DC-6AAA88A8EEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
