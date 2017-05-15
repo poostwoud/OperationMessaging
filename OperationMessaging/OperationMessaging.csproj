@@ -35,10 +35,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOperationService.cs" />
-    <Compile Include="Mapping.cs" />
+    <Compile Include="Route.cs" />
     <Compile Include="OperationRequest.cs" />
     <Compile Include="OperationResponse.cs" />
     <Compile Include="OperationService.cs" />
+    <Compile Include="OperationStatusCodes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteParser.cs" />
   </ItemGroup>

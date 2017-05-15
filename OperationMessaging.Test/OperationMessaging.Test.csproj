@@ -59,7 +59,7 @@
       <Name>Calculation</Name>
     </ProjectReference>
     <ProjectReference Include="..\OperationMessaging\OperationMessaging.csproj">
-      <Project>{121413D5-4B2C-45F8-8BB3-367A27B48E61}</Project>
+      <Project>{121413d5-4b2c-45f8-8bb3-367a27b48e61}</Project>
       <Name>OperationMessaging</Name>
     </ProjectReference>
   </ItemGroup>

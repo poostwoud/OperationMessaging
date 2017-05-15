@@ -7,44 +7,73 @@ namespace OperationMessaging.Test
     [TestClass]
     public class OperationServiceTests
     {
+        private const string KnownRelativePath = "/calculator/add/1/2";
+        private const string UnknownRelativePath = "/this/path/is/unknown";
+
         [TestMethod]
-        public void UnknownRelativePath()
+        public void UnknownRelativePathInExecution()
         {
-            var service = new Service();
-            var relativePath = "this/path/is/unknown";
-            var result = service.Execute(relativePath);
+            var service = new Facade();
+            service.MapCorrect();
+            var result = service.Execute(UnknownRelativePath);
             Assert.IsFalse(result.Succes);
-            Assert.AreEqual("Unknown path", result.NonSuccessMessage);
+            Assert.AreEqual(OperationStatusCodes.NotFound, result.StatusCode);
         }
 
         [TestMethod]
-        public void CalculatorAdd()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void NullOrWhitespaceRouteInMapping()
         {
-            var service = new Service();
-            var relativePath = "calculator/add/6/2";
-            var result = service.Execute(relativePath);
-            Assert.IsTrue(result.Succes);
-            Assert.AreEqual(8, result.Result);
+            var service = new Facade();
+            service.MapNullOrWhitespaceRoute();
+            var result = service.Execute(KnownRelativePath);
         }
 
         [TestMethod]
-        public void CalculatorDivide1()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void UnknownOrNullActionInMapping()
         {
-            var service = new Service();
-            var relativePath = "calculator/divide/6/2";
-            var result = service.Execute(relativePath);
-            Assert.IsTrue(result.Succes);
-            Assert.AreEqual((float) 3, result.Result);
+            var service = new Facade();
+            service.MapNullOrUnknownAction();
+            var result = service.Execute(KnownRelativePath);
+        }
+    }
+
+    public sealed class Facade : OperationService
+    {
+        public void MapCorrect()
+        {
+            Routes.Clear();
+
+            Routes.Add(new Route(
+                routeTemplate: "/calculator/add/{operand1}/{operand2}",
+                action: typeof(Calculator).GetMethod("Add")));
+
+            Routes.Add(new Route(
+                routeTemplate: "/calculator/subtract/{operand1}/{operand2}",
+                action: typeof(Calculator).GetMethod("Subtract")));
+
+            Routes.Add(new Route(
+                routeTemplate: "/calculator/divide/{operand1}/{operand2}",
+                action: typeof(Calculator).GetMethod("Divide")));
         }
 
-        [TestMethod]
-        public void CalculatorDivide2()
+        public void MapNullOrWhitespaceRoute()
         {
-            var service = new Service();
-            var relativePath = "calculator/divide/5/2";
-            var result = service.Execute(relativePath);
-            Assert.IsTrue(result.Succes);
-            Assert.AreEqual((float)2.5, result.Result);
+            Routes.Clear();
+
+            Routes.Add(new Route(
+                routeTemplate: null,
+                action: typeof(Calculator).GetMethod("Add")));
+        }
+
+        public void MapNullOrUnknownAction()
+        {
+            Routes.Clear();
+
+            Routes.Add(new Route(
+                routeTemplate: "/calculator/multiply/{operand1}/{operand2}",
+                action: typeof(Calculator).GetMethod("Multiply")));
         }
     }
 }

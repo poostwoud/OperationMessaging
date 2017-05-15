@@ -7,25 +7,26 @@ namespace OperationMessaging
     {
         protected OperationService()
         {
-            Map = new List<Mapping>();
+            Routes = new List<Route>();
         }
         
-        protected List<Mapping> Map { get; }
+        protected List<Route> Routes { get; }
 
         public OperationResponse Execute(string relativePath, string data = null)
         {
+            //***** TODO:Support data;
             //*****
-            foreach (var item in Map)
-                if (item.IsMatch(relativePath))
-                    return new OperationResponse
-                    {
-                        Succes = true,
-                        Result = item.Execute(relativePath)
-                    };
+            foreach (var item in Routes)
+            {
+                var result = item.Execute(relativePath);
+                if (result.StatusCode == OperationStatusCodes.NotFound) continue;
+                return result;
+            }
 
+            //*****
             return new OperationResponse
             {
-                Succes = false,
+                StatusCode = OperationStatusCodes.NotFound,
                 Result = null,
                 NonSuccessMessage = "Unknown path"
             };

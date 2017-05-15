@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OperationMessaging\OperationMessaging.csproj">

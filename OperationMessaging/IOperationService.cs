@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OperationMessaging
+﻿namespace OperationMessaging
 {
     public interface IOperationService
     {

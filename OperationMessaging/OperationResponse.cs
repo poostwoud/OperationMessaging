@@ -5,7 +5,9 @@ namespace OperationMessaging
     [Serializable]
     public sealed class OperationResponse
     {
-        public bool Succes { get; set; }
+        public bool Succes => StatusCode == OperationStatusCodes.OK;
+
+        public OperationStatusCodes StatusCode { get; set; }
 
         public object Result { get; set; }
 
